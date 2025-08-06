@@ -260,7 +260,7 @@ This project is developed for educational and research purposes as part of the I
 
 **Team Leader**: Deep Rudra  
 **Email**: deeprudradr@gmail.com 
-**Project Repository**: [Repository Link]
+**Project Repository**: https://github.com/Deeprudra04/Real_Road-AI_IMB
 
 ---
 
