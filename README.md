@@ -258,8 +258,8 @@ This project is developed for educational and research purposes as part of the I
 
 ## 📞 Contact Information
 
-**Team Leader**: [Your Name]  
-**Email**: [Your Email]  
+**Team Leader**: Deep Rudra  
+**Email**: deeprudradr@gmail.com 
 **Project Repository**: [Repository Link]
 
 ---
