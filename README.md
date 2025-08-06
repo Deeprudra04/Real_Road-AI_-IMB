@@ -207,8 +207,8 @@ This project was developed as part of the **IBM AI/ML Internship Program**, prov
 - [Demo Videos](#) *(To be uploaded)*
 
 ### **Project Images**
-- [Screenshots](#) *(To be uploaded)*
-- [System Architecture](#) *(To be uploaded)*
+- [Screenshots](#) *(Screenshoot/Crop_Prediction.png)*
+- [System Architecture](#) *(Screenshoot/Crop_Prediction.png)*
 - [Demo Images](#) *(To be uploaded)*
 
 ---
