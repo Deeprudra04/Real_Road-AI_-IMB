@@ -211,6 +211,30 @@ This project was developed as part of the **IBM AI/ML Internship Program**, prov
 - [System Architecture](#) *(To be uploaded)*
 - [Demo Images](#) *(To be uploaded)*
 
+### **Project Screenshots**
+
+Here are the screenshots showcasing the different components of BharatKrishi AI:
+
+#### 🤖 **Krishi BOT Interface**
+![Krishi BOT Interface](Screenshoot/Krishi_Bot.png)
+*Intelligent AI-powered agricultural assistant providing real-time guidance to farmers*
+
+#### 🌱 **Crop Prediction System**
+![Crop Prediction System](Screenshoot/Crop_Prediction.png)
+*Machine learning-based crop recommendation system with weather integration*
+
+#### 🔍 **Rice Disease Detection**
+![Rice Disease Detection](Screenshoot/Rice_desies%20detectation.png)
+*Deep learning model for real-time rice disease identification from plant images*
+
+#### 🖥️ **Main Interface - Part 1**
+![Main Interface Part 1](Screenshoot/Interface_A1.png)
+*Primary user interface showcasing the integrated agricultural advisory system*
+
+#### 🖥️ **Main Interface - Part 2**
+![Main Interface Part 2](Screenshoot/Interface_A2.png)
+*Secondary interface view demonstrating the comprehensive features of the system*
+
 ---
 
 ## 🤝 Contributing
