@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🧪 BharatKrishi AI - API Test</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #e8f5e8 0%, #d4edda 50%, #c3e6cb 100%);
+      min-height: 100vh;
+      color: #2d5016;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      background: linear-gradient(135deg, #2d5016 0%, #3a5f1f 100%);
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 10px rgba(45, 80, 22, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .nav-brand i {
+      font-size: 2rem;
+      color: #90ee90;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-menu a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+    }
+
+    .nav-menu a:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #90ee90;
+    }
+
+    .nav-menu a.active {
+      background: rgba(255, 255, 255, 0.2);
+      color: #90ee90;
+    }
+
+    /* Main Content */
+    .main-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      min-height: calc(100vh - 80px);
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(15px);
+      border-radius: 25px;
+      box-shadow: 0 15px 35px rgba(45, 80, 22, 0.1);
+      padding: 40px;
+      max-width: 800px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #2d5016, #4a7c59);
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .header h1 {
+      color: #2d5016;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, #2d5016, #4a7c59);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .header p {
+      color: #5a7c3a;
+      font-size: 1.1rem;
+      font-weight: 400;
+    }
+
+    .test-section {
+      margin-bottom: 30px;
+    }
+
+    .test-section h3 {
+      color: #2d5016;
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .test-buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .test-btn {
+      padding: 15px 20px;
+      background: linear-gradient(135deg, #4a7c59, #5a7c3a);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .test-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(74, 124, 89, 0.3);
+      background: linear-gradient(135deg, #5a7c3a, #4a7c59);
+    }
+
+    .test-btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .result {
+      margin-top: 30px;
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: 500;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease;
+    }
+
+    .result.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .result.success {
+      background: linear-gradient(135deg, #90ee90, #98fb98);
+      color: #2d5016;
+      box-shadow: 0 10px 25px rgba(144, 238, 144, 0.3);
+      border: 1px solid rgba(45, 80, 22, 0.2);
+    }
+
+    .result.error {
+      background: linear-gradient(135deg, #ffb6c1, #ffc0cb);
+      color: #8b0000;
+      box-shadow: 0 10px 25px rgba(255, 182, 193, 0.3);
+      border: 1px solid rgba(139, 0, 0, 0.2);
+    }
+
+    .result-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .result-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 10px 0;
+    }
+
+    .result-details {
+      margin-top: 20px;
+      text-align: left;
+      background: rgba(255, 255, 255, 0.3);
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(45, 80, 22, 0.1);
+    }
+
+    .detail-row:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .detail-label {
+      font-weight: 600;
+      opacity: 0.8;
+      color: #2d5016;
+    }
+
+    .detail-value {
+      font-weight: 400;
+      color: #2d5016;
+    }
+
+    .api-info {
+      background: rgba(74, 124, 89, 0.1);
+      padding: 20px;
+      border-radius: 12px;
+      border-left: 4px solid #4a7c59;
+      margin-top: 30px;
+    }
+
+    .api-info h3 {
+      color: #2d5016;
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .code-block {
+      background: #2d5016;
+      color: #e8f5e8;
+      padding: 15px;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      margin: 10px 0;
+      overflow-x: auto;
+    }
+
+    .spinner {
+      width: 20px;
+      height: 20px;
+      border: 2px solid #ffffff;
+      border-top: 2px solid transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .nav-link {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, #90ee90, #98fb98);
+      color: #2d5016;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(144, 238, 144, 0.3);
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+      }
+      
+      .container {
+        padding: 30px 20px;
+        margin: 10px;
+      }
+
+      .header h1 {
+        font-size: 2rem;
+      }
+
+      .test-buttons {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-brand">
+        <i class="fas fa-seedling"></i>
+        BharatKrishi AI
+      </a>
+      <ul class="nav-menu">
+        <li><a href="/" class="active">Home</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="container">
+      <div class="header">
+        <h1><i class="fas fa-flask"></i> API Test Dashboard</h1>
+        <p>Test the crop recommendation API with different scenarios</p>
+      </div>
+
+      <div class="test-section">
+        <h3><i class="fas fa-play-circle"></i> Quick Tests</h3>
+        <div class="test-buttons">
+          <button class="test-btn" onclick="testAPI('mumbai')">
+            <i class="fas fa-city"></i> Test Mumbai
+          </button>
+          <button class="test-btn" onclick="testAPI('bengaluru')">
+            <i class="fas fa-city"></i> Test Bengaluru
+          </button>
+          <button class="test-btn" onclick="testAPI('chennai')">
+            <i class="fas fa-city"></i> Test Chennai
+          </button>
+          <button class="test-btn" onclick="testAPI('hyderabad')">
+            <i class="fas fa-city"></i> Test Hyderabad
+          </button>
+          <button class="test-btn" onclick="testAPI('kolkata')">
+            <i class="fas fa-city"></i> Test Kolkata
+          </button>
+          <button class="test-btn" onclick="testAPI('delhi')">
+            <i class="fas fa-exclamation-triangle"></i> Test Invalid Location
+          </button>
+        </div>
+      </div>
+
+      <div id="result" class="result"></div>
+
+      <div class="api-info">
+        <h3><i class="fas fa-code"></i> API Information</h3>
+        <p><strong>Endpoint:</strong> POST http://127.0.0.1:5000/predict</p>
+        <p><strong>Content-Type:</strong> application/json</p>
+        
+        <h4 style="margin-top: 15px; color: #2d5016;">Sample Request:</h4>
+        <div class="code-block">
+{
+  "N": 50,
+  "P": 50,
+  "K": 50,
+  "ph": 6.5,
+  "state": "Maharashtra",
+  "district": "Mumbai",
+  "month": "January"
+}
+        </div>
+
+        <h4 style="margin-top: 15px; color: #2d5016;">Sample Response:</h4>
+        <div class="code-block">
+{
+  "prediction": "papaya"
+}
+        </div>
+      </div>
+
+      <a href="/" class="nav-link">
+        <i class="fas fa-arrow-left"></i> Back to Main App
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const testData = {
+      mumbai: {
+        N: 50,
+        P: 50,
+        K: 50,
+        ph: 6.5,
+        state: "Maharashtra",
+        district: "Mumbai",
+        month: "January"
+      },
+      bengaluru: {
+        N: 45,
+        P: 55,
+        K: 60,
+        ph: 6.8,
+        state: "Karnataka",
+        district: "Bengaluru",
+        month: "March"
+      },
+      chennai: {
+        N: 60,
+        P: 40,
+        K: 45,
+        ph: 7.2,
+        state: "Tamil Nadu",
+        district: "Chennai",
+        month: "June"
+      },
+      hyderabad: {
+        N: 55,
+        P: 45,
+        K: 50,
+        ph: 6.9,
+        state: "Telangana",
+        district: "Hyderabad",
+        month: "April"
+      },
+      kolkata: {
+        N: 48,
+        P: 52,
+        K: 55,
+        ph: 6.7,
+        state: "West Bengal",
+        district: "Kolkata",
+        month: "February"
+      },
+      delhi: {
+        N: 50,
+        P: 50,
+        K: 50,
+        ph: 6.5,
+        state: "Delhi",
+        district: "New Delhi",
+        month: "January"
+      }
+    };
+
+    async function testAPI(location) {
+      const data = testData[location];
+      const resultDiv = document.getElementById("result");
+      
+      // Disable all buttons during test
+      const buttons = document.querySelectorAll('.test-btn');
+      buttons.forEach(btn => btn.disabled = true);
+
+      // Show loading state
+      resultDiv.innerHTML = `
+        <div class="result-icon">⏳</div>
+        <div class="result-title">Testing...</div>
+        <p>Analyzing ${location} data...</p>
+      `;
+      resultDiv.className = "result show";
+
+      try {
+        const response = await fetch("http://127.0.0.1:5000/predict", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+        
+        if (response.ok) {
+          resultDiv.innerHTML = `
+            <div class="result-icon">✅</div>
+            <div class="result-title">Success!</div>
+            <p>API test completed successfully</p>
+            <div class="result-details">
+              <div class="detail-row">
+                <span class="detail-label">Recommended Crop:</span>
+                <span class="detail-value">${result.prediction}</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Status Code:</span>
+                <span class="detail-value">${response.status}</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Location:</span>
+                <span class="detail-value">${data.state}, ${data.district}</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-value">N: ${data.N} | P: ${data.P} | K: ${data.K} | pH: ${data.ph}</span>
+              </div>
+            </div>
+          `;
+          resultDiv.className = "result success show";
+        } else {
+          resultDiv.innerHTML = `
+            <div class="result-icon">❌</div>
+            <div class="result-title">API Error</div>
+            <p>${result.error}</p>
+            <div class="result-details">
+              <div class="detail-row">
+                <span class="detail-label">Status Code:</span>
+                <span class="detail-value">${response.status}</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Location:</span>
+                <span class="detail-value">${data.state}, ${data.district}</span>
+              </div>
+            </div>
+          `;
+          resultDiv.className = "result error show";
+        }
+      } catch (err) {
+        resultDiv.innerHTML = `
+          <div class="result-icon">🌐</div>
+          <div class="result-title">Connection Error</div>
+          <p>Unable to connect to the server</p>
+          <div class="result-details">
+            <div class="detail-row">
+              <span class="detail-label">Error:</span>
+              <span class="detail-value">${err.message}</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Solution:</span>
+              <span class="detail-value">Make sure Flask server is running</span>
+            </div>
+          </div>
+        `;
+        resultDiv.className = "result error show";
+      } finally {
+        // Re-enable buttons
+        buttons.forEach(btn => btn.disabled = false);
+      }
+    }
+  </script>
+</body>
+</html> 

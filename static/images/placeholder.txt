@@ -1,0 +1,22 @@
+This directory should contain the following images:
+
+1. hero-ai-farming.png - A hero image showing AI-powered farming technology
+2. team/leader1.jpg - Photo of Dr. Rajesh Kumar (Project Lead)
+3. team/Tanmay Debnath.jpg - Photo of Dr. Priya Sharma (Technical Lead)
+4. team/member1.jpg - Photo of Amit Patel (AI Engineer)
+5. team/member2.jpg - Photo of Sneha Reddy (Data Scientist)
+6. team/member3.jpg - Photo of Vikram Singh (ML Engineer)
+7. team/member4.jpg - Photo of Anjali Desai (Frontend Developer)
+
+For now, you can use placeholder images from services like:
+- https://placeholder.com/
+- https://picsum.photos/
+- https://unsplash.com/
+
+Recommended image sizes:
+- Hero image: 800x600px
+- Team photos: 400x400px (square format)
+
+Example placeholder URLs:
+- Hero: https://picsum.photos/800/600
+- Team: https://picsum.photos/400/400 
