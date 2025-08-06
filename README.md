@@ -81,12 +81,12 @@ This project directly contributes to **Sustainable Development Goal 2: Zero Hung
 
 | Role | Name | Responsibilities |
 |------|------|------------------|
-| **Team Leader** | Deep Rudra | Project coordination, system integration, technical oversight |
-| **Team Member 1** | Tanmay Debnath | Krishi BOT development and AI integration |
-| **Team Member 2** | Debtanu Chaudhuri  | Crop Prediction model development |
-| **Team Member 3** | Susanta Sing | Rice Disease Detection system |
-| **Team Member 4** | Lutfar Rahman | Frontend development and UI/UX |
-| **Team Member 5** | Tanmay Das | Backend development and API integration |
+| **Team Leader** | Deep Rudra | 
+| **Team Member 1** | Tanmay Debnath | 
+| **Team Member 2** | Debtanu Chaudhuri  | 
+| **Team Member 3** | Susanta Sing | 
+| **Team Member 4** | Lutfar Rahman | 
+| **Team Member 5** | Tanmay Das | 
 
 
 ---
