@@ -79,8 +79,8 @@ This project directly contributes to **Sustainable Development Goal 2: Zero Hung
 
 ### **Project Team**
 
-| Role | Name | Responsibilities |
-|------|------|------------------|
+| Role | Name | 
+|------|------|
 | **Team Leader** | Deep Rudra | 
 | **Team Member 1** | Tanmay Debnath | 
 | **Team Member 2** | Debtanu Chaudhuri  | 
